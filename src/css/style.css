@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100vw;
+}
+
+.texto {
+    display: flex;
+    width: 650px;
+    height: 687px;
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;
+    padding: 300px;
+
+
+}
+
+.texto h1 {
+    font-size: 35px;
+    font-weight: 900;
+    width: 600px;
+    height: 300px;
+    margin-bottom: 15px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+
+.texto h2 {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 500px;
+    height: 150px;
+    color: #FFFFFF;
+}
+
+.formulario {
+    background-color: #FFFFFF;
+    width: 360px;
+    height: 450px;
+    border: 1px solid;
+    margin-top: 150px;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: space-between;
+    box-shadow: 1px 2px 1px black;
+}
+
+.formulario .campo{
+    width: 315px;
+    height: 40px;
+    margin-bottom: 15px;
+    align-content: center;
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-origin: padding-box;
+}
+
+.formulario .campo.mensagem{
+    width: 315px;
+    height: 120px;
+    text-align: start;
+}
+
+
+.btn-enviar {
+    cursor: pointer;
+    width: 315px;
+    height: 42px;
+    background-color: #3CCC87;
+    border-radius: 10px;
+    align-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.btn-enviar p{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 12px;
+    color: #FFFFFF;
+}
+
+.aviso{
+    color: red;
+    font-size: 8px;
+    position: absolute;
+    margin-top: -15px;
+}
+
+.aviso.oculto{
+    opacity: 0;
+}
