@@ -1,36 +1,39 @@
 function validarFormulario(event) {
   event.preventDefault();
 
-  var nome = document.querySelector(".campo.nome");
-  var email = document.querySelector(".campo.email");
-  var telefone = document.querySelector(".campo.telefone");
-  var mensagem = document.querySelector(".campo.mensagem");
+  var camposObrigatorios = document.querySelectorAll(".campo-obrigatorio");
+  var avisosCamposObrigatorios = document.querySelectorAll(".aviso.oculto");
 
-  var camposObrigatorios = [nome, email, telefone, mensagem];
-  var avisoCamposObrigatorios = document.querySelectorAll(".aviso.oculto");
-
-  for (var i = 0; i < camposObrigatorios.length; i++) {
-    if (camposObrigatorios[i].value == "") {
-      camposObrigatorios[i].style.borderColor = "red";
-      avisoCamposObrigatorios[i].classList.remove("oculto");
+  camposObrigatorios.forEach((campo, index) => {
+    if (campo.value.trim() === "") {
+      campo.classList.remove("tudoOk");
+      campo.classList.add("nadaOk");
+      avisosCamposObrigatorios[index].classList.remove("oculto");
     } else {
-      camposObrigatorios[i].style.borderColor = "green";
-      avisoCamposObrigatorios[i].classList.add("oculto");
+      campo.classList.remove("nadaOk");
+      campo.classList.add("tudoOk");
+      avisosCamposObrigatorios[index].classList.add("oculto");
     }
-  }
+  });
 }
 
 var botaoEnviar = document.querySelector(".btn-enviar");
 botaoEnviar.addEventListener("click", validarFormulario);
 
-const inputs = document.querySelectorAll(".campo");
+var campos = document.querySelectorAll(".campo");
 
-inputs.forEach((input) => {
-  input.addEventListener("input", () => {
-    if (input.value.trim() !== "") {
-      input.style.borderColor = "green";
+campos.forEach((campo) => {
+  campo.addEventListener("keyup", () => {
+    if (campo.value.trim() !== "") {
+      campo.classList.remove("nadaOk");
+      campo.classList.add("tudoOk");
+      campo.nextElementSibling.classList.add("oculto");
     } else {
-      input.style.borderColor = "red";
+      campo.classList.remove("tudoOk");
+      campo.classList.add("nadaOk");
+      campo.style.borderColor = "initial";
     }
   });
 });
+
+
